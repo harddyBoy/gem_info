@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2019_05_15_132421) do
   enable_extension "plpgsql"
 
   create_table "gem_infos", force: :cascade do |t|
-    t.string "content_row"
     t.integer "post_date"
     t.string "gem_name"
     t.string "title"
     t.integer "gem_cve"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
