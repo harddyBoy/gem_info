@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <li> <%= link_to 'Sing out', destroy_user_session_path, method: :delete %> </li>
+    <li><%= link_to 'Sing out', destroy_user_session_path, method: :delete %> </li>
     <li><%= link_to 'Edit registration', edit_user_registration_path %></li>
     <%= current_user.email %>
   <% else %>
@@ -8,5 +8,10 @@
    <li> <%= link_to 'sing up', new_user_registration_path %> </li>
   <% end %>
 
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+
+
+
+<% @gem_infos.each do |p| %>
+	<p><%=  p.title %></p>
+<% end %>
