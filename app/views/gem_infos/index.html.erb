@@ -9,10 +9,7 @@
   <% end %>
 
 
-
-
-
+<!-- don't show title -->
 <% @gem_infos.each do |p| %>
-	<p><%= link_to p.url, 'https://rubysec.com' +  p.url.to_s %></p>
+	<p><%= link_to p.title	, 'https://rubysec.com' +  p.url.to_s %></p>
 <% end %>
-
