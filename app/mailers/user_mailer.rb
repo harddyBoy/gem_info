@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-	default from: 'geminfo@gmail.com'
 
-	def welcome_email(user)
+	def send_new_published(user)
 		@user = user #params[:user]
-		@url  = 'http://geminfo.com/login'
-		mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+	    @gem_infos = @user.gem_infos.published_today
+		@url = 'http://localhost:3000/'
+		mail(to: @user.email, subject: 'Welcome to Gem Info')
 	end
 end

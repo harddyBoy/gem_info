@@ -1,18 +1,21 @@
+require 'open-uri'
+
 class ParserService
   def parse_gem
 
-    require 'open-uri'
+
     url = "https://rubysec.com/advisories"
     page = Nokogiri::HTML(open(url))
 
 
     #get url of each post
-    gem_url = page.css("tr td a @href")
+    scrapted_url= page.css("tr td a")
+
     @gem_url_array = []
 
-    gem_url.map { |link| link['href'] 
-      gem_url_name = link.text
-      @gem_url_array.push(gem_url_name)
+    scrapted_url.map { |link| link['href'] 
+      url_name = link.text
+      @gem_url_array.push(url_name)
     }
 
     @gem_url_array.each do |element|
@@ -20,6 +23,7 @@ class ParserService
     end
 
     #get title of each post(work incorrectly)
+
     # gem_title = page.css("tr td a")
     # @gem_title_array = []
 
@@ -29,7 +33,7 @@ class ParserService
     # }
 
     # @gem_title_array.each do |element|
-    #   content = GemInfo.find_or_create_by(title: element)
+    #   content = GemInfo.find_or_create_by(gem_name: element)
    
     # end
   end

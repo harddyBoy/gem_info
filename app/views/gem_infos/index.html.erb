@@ -1,3 +1,5 @@
+<h1>GemInfo.com</h1>
+
 <% if user_signed_in? %>
     <li><%= link_to 'Sing out', destroy_user_session_path, method: :delete %> </li>
     <li><%= link_to 'Edit registration', edit_user_registration_path %></li>
@@ -12,4 +14,7 @@
 <!-- don't show title -->
 <% @gem_infos.each do |p| %>
 	<p><%= link_to p.title	, 'https://rubysec.com' +  p.url.to_s %></p>
+
 <% end %>
+
+
